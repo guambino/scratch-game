@@ -1,4 +1,4 @@
 package ae.cyberspeed.scratch.game.main;
 
 
-public class ScratchGame { }
+public class ScratchGameTest { }
