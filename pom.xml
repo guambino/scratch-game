@@ -52,16 +52,23 @@
         </configuration>
       </plugin>
 
-      <!-- Assembly Plugin
+      <!-- Assembly Plugin -->
       <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-assembly-plugin</artifactId>
+        <version>3.7.1</version>
         <configuration>
+          <!-- get all project dependencies -->
+          <descriptorRefs>
+            <descriptorRef>jar-with-dependencies</descriptorRef>
+          </descriptorRefs>
+
+          <!-- MainClass in manifest make a executable jar -->
           <archive>
             <manifest>
               <mainClass>ae.cyberspeed.scratch.game.main.ScratchGame</mainClass>
             </manifest>
           </archive>
+
         </configuration>
         <executions>
           <execution>
@@ -72,7 +79,7 @@
             </goals>
           </execution>
         </executions>
-      </plugin>-->
+      </plugin>
 
     </plugins>
   </build>
