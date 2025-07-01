@@ -4,6 +4,5 @@ Problem statement: You need to build a scratch game, that will generate a matrix
 # build
 mvn package
 
-# Run 
-java -jar target/scratch-game-1.0.0-SNAPSHOT.jar
+# Run
 java -jar target/scratch-game-1.0.0-SNAPSHOT-jar-with-dependencies.jar
