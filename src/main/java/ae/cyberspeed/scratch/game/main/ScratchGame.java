@@ -45,7 +45,8 @@ public class ScratchGame {
         clearScreen();
 
        //run the menu
-        MenuService menu = new MenuService(configJsonFile, configJsonFile);
+        MenuService menu = new MenuService(configJsonFile, bettingAmount);
+        menu.runMenu();
 
     }
 

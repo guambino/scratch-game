@@ -4,16 +4,24 @@ public class MenuService {
 
     private final String configJsonFile;
 
-    private final String configFileName;
+    private final Integer bettingAmount;
 
-    public MenuService(String configJsonFile, String configFileName) {
+    public MenuService(String configJsonFile, Integer bettingAmount) {
         this.configJsonFile = configJsonFile;
-        this.configFileName = configFileName;
+        this.bettingAmount = bettingAmount;
+    }
+
+    public void runMenu(){
 
         System.out.println("******************************************************** ");
         System.out.println("           Welcome To Scratch Game ");
         System.out.println("******************************************************** ");
-
+        System.out.println();
+        System.out.println();
+        System.out.println("Config File: " + configJsonFile);
+        System.out.println("Betting Amount " + bettingAmount);
+        System.out.println();
+        System.out.println();
 
     }
 }
