@@ -3,13 +3,15 @@ package ae.cyberspeed.scratch.game.main;
 
 import ae.cyberspeed.scratch.game.service.MenuService;
 
+import java.io.File;
+
 public class ScratchGame {
 
     public static void main(String[] args) {
         //validate input params are fine
 
         //1. Config file
-        String configJsonFile = null;
+        String configJsonFilePath = null;
 
         //2. Betting Amount
         Integer bettingAmount = 0;
@@ -24,7 +26,7 @@ public class ScratchGame {
        //3.3 read the arguments
         for (int i = 0; i < args.length; i++) {
             if (args[i].equals("--config")) {
-                configJsonFile = args[++i];
+                configJsonFilePath = args[++i];
             }
             else if (args[i].equals("--betting-amount")) {
                 bettingAmount = Integer.valueOf(args[++i]);
@@ -32,7 +34,7 @@ public class ScratchGame {
         }
 
 
-       if (configJsonFile == null) {
+       if (configJsonFilePath == null) {
            System.err.println("Config file not found.");
            System.exit(1);
        }
@@ -42,10 +44,13 @@ public class ScratchGame {
            System.exit(1);
        }
 
+       //create the json file if possible
+        File configJsonFile = new File(configJsonFilePath);
+
         clearScreen();
 
        //run the menu
-        MenuService menu = new MenuService(configJsonFile, bettingAmount);
+        MenuService menu = new MenuService(configJsonFilePath, bettingAmount);
         menu.runMenu();
 
     }

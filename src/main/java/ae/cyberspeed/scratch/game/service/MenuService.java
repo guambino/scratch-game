@@ -8,7 +8,7 @@ public class MenuService {
 
     private final Integer bettingAmount;
 
-    private static final String ASTERICK_LINE = "********************************************************";
+    private static final String ASTERISK_LINE = "********************************************************";
 
     public MenuService(String configJsonFile, Integer bettingAmount) {
         this.configJsonFile = configJsonFile;
@@ -21,9 +21,9 @@ public class MenuService {
     }
 
     private void menuIntro(){
-        System.out.println(ASTERICK_LINE);
+        System.out.println(ASTERISK_LINE);
         System.out.println("           Welcome To Scratch Game                       ");
-        System.out.println(ASTERICK_LINE);
+        System.out.println(ASTERISK_LINE);
         System.out.println();
         System.out.println();
         System.out.println("Config File: " + configJsonFile);
@@ -38,9 +38,9 @@ public class MenuService {
         String menuChoice = "";
 
         while (!menuChoice.equalsIgnoreCase("0")){
-            System.out.println(ASTERICK_LINE);
+            System.out.println(ASTERISK_LINE);
             System.out.println("                     Menu                                ");
-            System.out.println(ASTERICK_LINE);
+            System.out.println(ASTERISK_LINE);
             System.out.println(" 1. Run Game ");
             System.out.println(" 0. Exit ");
             menuChoice = choice.nextLine();
