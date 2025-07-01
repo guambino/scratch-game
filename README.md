@@ -6,3 +6,5 @@ mvn package
 
 # Run
 java -jar target/scratch-game-1.0.0-SNAPSHOT-jar-with-dependencies.jar
+
+java -jar target/scratch-game-1.0.0-SNAPSHOT-jar-with-dependencies.jar --config C:\usr\local\workspaces\workspace-assessment\cyberspeed\config.json --betting-amount 100

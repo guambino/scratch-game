@@ -1,5 +1,7 @@
 package ae.cyberspeed.scratch.game.domain;
 
+import com.fasterxml.jackson.annotation.JsonAlias;
+
 import java.util.Map;
 import java.util.Objects;
 
@@ -13,6 +15,7 @@ public class Configuration {
 
     private Probability probabilities;
 
+    @JsonAlias("win_combinations")
     private Map<String, WinCombination> winCombinations;
 
     public int getColumns() {

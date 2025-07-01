@@ -1,7 +1,10 @@
 package ae.cyberspeed.scratch.game.main;
 
 
+import ae.cyberspeed.scratch.game.domain.Configuration;
 import ae.cyberspeed.scratch.game.service.MenuService;
+import com.fasterxml.jackson.databind.DeserializationFeature;
+import com.fasterxml.jackson.databind.ObjectMapper;
 
 import java.io.File;
 
@@ -45,12 +48,24 @@ public class ScratchGame {
        }
 
        //create the json file if possible
-        File configJsonFile = new File(configJsonFilePath);
+       File configJsonFile = new File(configJsonFilePath);
+       ObjectMapper objectMapper = new ObjectMapper();
 
-        clearScreen();
+       //objectMapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
+       Configuration configuration = null;
+
+       try{
+           configuration = objectMapper.readValue(configJsonFile, Configuration.class);
+       }catch (Exception ex){
+           System.err.println("Error reading configuration file. " + ex.getMessage());
+           System.exit(1);
+       }
+
+
+       clearScreen();
 
        //run the menu
-        MenuService menu = new MenuService(configJsonFilePath, bettingAmount);
+        MenuService menu = new MenuService(configuration, bettingAmount);
         menu.runMenu();
 
     }

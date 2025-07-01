@@ -1,12 +1,16 @@
 package ae.cyberspeed.scratch.game.domain;
 
+import com.fasterxml.jackson.annotation.JsonAlias;
+
 import java.util.List;
 import java.util.Objects;
 
 public class Probability {
 
+    @JsonAlias("standard_symbols")
     private List<StandardSymbol> standardSymbols;
 
+    @JsonAlias("bonus_symbols")
     private BonusSymbol bonusSymbol;
 
     public List<StandardSymbol> getStandardSymbols() {

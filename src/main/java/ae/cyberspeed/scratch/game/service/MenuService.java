@@ -1,17 +1,19 @@
 package ae.cyberspeed.scratch.game.service;
 
+import ae.cyberspeed.scratch.game.domain.Configuration;
+
 import java.util.Scanner;
 
 public class MenuService {
 
-    private final String configJsonFile;
+    private final Configuration configuration;
 
     private final Integer bettingAmount;
 
     private static final String ASTERISK_LINE = "********************************************************";
 
-    public MenuService(String configJsonFile, Integer bettingAmount) {
-        this.configJsonFile = configJsonFile;
+    public MenuService(Configuration configuration, Integer bettingAmount) {
+        this.configuration = configuration;
         this.bettingAmount = bettingAmount;
     }
 
@@ -26,7 +28,6 @@ public class MenuService {
         System.out.println(ASTERISK_LINE);
         System.out.println();
         System.out.println();
-        System.out.println("Config File: " + configJsonFile);
         System.out.println("Betting Amount: " + bettingAmount);
         System.out.println();
         System.out.println();

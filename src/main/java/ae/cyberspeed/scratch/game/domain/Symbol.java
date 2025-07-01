@@ -1,9 +1,12 @@
 package ae.cyberspeed.scratch.game.domain;
 
+import com.fasterxml.jackson.annotation.JsonAlias;
+
 import java.util.Objects;
 
 public class Symbol {
 
+    @JsonAlias("reward_multiplier")
     private Double rewardMultiplier;
 
     private String type;
