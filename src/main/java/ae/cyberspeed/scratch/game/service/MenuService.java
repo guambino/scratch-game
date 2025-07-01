@@ -48,9 +48,13 @@ public class MenuService {
 
             //Options
             switch (menuChoice){
-                case "1": System.out.println(" You about to run the game. "); break;
+                case "1": runGame(); break;
                 case "0": System.exit(0); break;
             }
         }
+    }
+
+    private void runGame(){
+        new ScratchGameService(configuration).runGame(bettingAmount);
     }
 }

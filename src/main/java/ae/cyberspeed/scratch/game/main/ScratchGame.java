@@ -50,8 +50,6 @@ public class ScratchGame {
        //create the json file if possible
        File configJsonFile = new File(configJsonFilePath);
        ObjectMapper objectMapper = new ObjectMapper();
-
-       //objectMapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
        Configuration configuration = null;
 
        try{
