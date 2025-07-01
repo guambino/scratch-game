@@ -16,7 +16,7 @@
     <maven.compiler.source>${java.version}</maven.compiler.source>
     <maven.compiler.target>${java.version}</maven.compiler.target>
 
-    <jackson.version>2.16.1</jackson.version>
+    <jackson.version>2.19.1</jackson.version>
   </properties>
 
   <dependencies>
@@ -45,15 +45,11 @@
       <!-- Compiler Plugin -->
       <plugin>
         <artifactId>maven-compiler-plugin</artifactId>
+        <version>3.14.0</version>
         <configuration>
           <source>${java.version}</source>
           <target>${java.version}</target>
         </configuration>
-      </plugin>
-
-      <!-- Jar Plugin -->
-      <plugin>
-        <artifactId>maven-jar-plugin</artifactId>
       </plugin>
 
       <!-- Assembly Plugin
