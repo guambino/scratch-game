@@ -1,6 +1,9 @@
 package ae.cyberspeed.scratch.game.service;
 
 import ae.cyberspeed.scratch.game.domain.*;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.node.ArrayNode;
+import com.fasterxml.jackson.databind.node.ObjectNode;
 
 import java.util.*;
 
@@ -88,8 +91,27 @@ public class ScratchGameService {
             }
         }
 
+        // Build JSON output
+        ObjectMapper mapper = new ObjectMapper();
+        ObjectNode root = mapper.createObjectNode();
+        ArrayNode mat = mapper.createArrayNode();
+        for (String[] row : matrix) {
+            ArrayNode r = mapper.createArrayNode();
+            for (String cell : row) r.add(cell);
+            mat.add(r);
+        }
+        root.set("matrix", mat);
+        root.put("reward", (int) totalReward);
+        ObjectNode winMap = mapper.createObjectNode();
+        for (Map.Entry<String, List<String>> e : appliedWins.entrySet()) {
+            ArrayNode a = mapper.createArrayNode();
+            e.getValue().forEach(a::add);
+            winMap.set(e.getKey(), a);
+        }
+        root.set("applied_winning_combinations", winMap);
+        root.put("applied_bonus_symbol", appliedBonus);
 
-        return "";
+        return root.toPrettyString();
     }
 
     private String getRandomSymbol(int row, int col) {

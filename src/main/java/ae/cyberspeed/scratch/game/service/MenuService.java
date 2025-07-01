@@ -55,6 +55,7 @@ public class MenuService {
     }
 
     private void runGame(){
-        new ScratchGameService(configuration).runGame(bettingAmount);
+       String gameResult = new ScratchGameService(configuration).runGame(bettingAmount);
+       System.out.println(gameResult);
     }
 }
